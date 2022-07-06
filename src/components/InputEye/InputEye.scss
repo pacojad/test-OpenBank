@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.InputEye-show {
+  position: absolute;
+  pointer-events: none;
+
+  img {
+    pointer-events: initial;
+    width: 30px;
+    position: relative;
+    top: 7px;
+    right: 38px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../styles/variables.scss";
+
+.WizardSteps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background-color: $background-color;
+  width: 100%;
+  box-shadow: 0px -7px 5px -5px $terciary-color inset;
+  
+  .line {
+    display: inline-block;
+    width: 35px;
+    height: 4px;
+
+    &-prev {
+      background-color: $primary-color;
+    }
+
+    &-post {
+      background-color: $terciary-color;
+    }
+  }
+
+  .triangle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+
+    &-container {
+      position: absolute;
+      align-self: flex-end;
+      width: 0;
+      height: 0;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid $white;
+      border-left: 10px solid transparent;
+    }
+  }
+} 

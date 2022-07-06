@@ -1,6 +1,167 @@
-$primary-color: #FF0049;
-$secondary-color: #002B45;
-$terciary-color: #FFF1E5;
+@import "./variables.scss";
 
-$white: #FFFFFF;
-$black: #000000;
+html {
+  font-size: 100%;
+  color: $secondary-color;
+}
+
+.col-2 {
+  width: 16.6%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.3%;
+}
+.col-5 {
+  width: 41.6%;
+}
+.col-6{
+  width: 50%;
+}
+.col-12 {
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .control-label {
+    display: block;
+    font-size: 0.8rem;
+    font-family: $primary-font-bold;
+    padding-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.7rem;
+    box-sizing: border-box;
+    font-family: $primary-font-book;
+    font-size: 0.8rem;
+    border: 2px solid $secondary-color;
+  }
+
+  span.input-error {
+    font-size: 0.8rem;
+    font-family: $primary-font-bold;
+    color: $error-color;
+  }
+}
+
+.button {
+  font-family: $primary-font-bold;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: button;
+    
+  &-primary {
+    background-color: $button-color;
+    color: $white;
+    border-radius: 2px;
+    // min-width: 166px;
+    padding: 1rem 2rem;
+    // height: 3rem;
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  &-secondary {
+    background-color: initial;
+    color: $button-color;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &.disabled {
+    opacity: .3;
+    pointer-events: none;
+  }
+}
+
+h4 {
+  display: block;
+  position: relative;
+  font-family: $primary-font-bold;
+  font-size: 1.60rem;
+  color: $secondary-color;
+  margin-bottom: 2rem;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 110%;
+    border-bottom: .2rem solid $terciary-color;
+    width: 3rem;
+  }
+}
+
+h5 {
+  font-family: $primary-font-bold;
+  font-size: 1.25rem;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-family: $primary-font-book;
+  font-size: 1rem;
+  color: $secondary-color;
+}
+
+.check-label {
+  font-family: $primary-font-bold;
+  font-size: 1.2rem;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  input[type="checkbox"] + label:before {
+	  content: "";
+	  width: 15px;
+	  height: 15px;
+	  float: left;
+	  margin: .3rem .5rem .5rem 0;
+	  border: 2px solid $secondary-color;
+	  background: $white;
+    cursor: pointer;
+    pointer-events: initial;
+  }
+
+  input[type="checkbox"]:checked + label:before {
+	  background: $secondary-color;
+  }
+
+  input[type="checkbox"]:checked + label:after {
+    position: absolute;
+    top: 8px;
+    left: 2px;
+    content: "";
+    width: 12px;
+    height: 6px;
+    border: 3px solid $white;
+    border-right: 0;
+    border-top: 0;
+    transform: rotate(-55deg);
+    cursor: pointer;
+    pointer-events: initial;
+  }
+
+  input[type="checkbox"] {
+	  display: none;
+  }
+
+  label {
+    pointer-events: none;
+  }
+}
+

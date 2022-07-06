@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+.WizardButtonsResult {
+  background-color: $white;
+  border-top: 1px solid $background-color;
+  display: inline-flex;
+  padding: 20px 40px;
+  justify-content: right;
+}

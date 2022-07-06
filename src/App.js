@@ -5,15 +5,33 @@ import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
 
+import Modal from "./components/ModalContainer/ModalContainer";
+
+// import i18n from "./i18n";
+
 import "./App.scss";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      wizard: false
+    };
+  }
+
+  open = () => {
+    this.setState({wizard: true});
+  }
+  close = () => {
+    this.setState({wizard: false});
+  }
 
   render() {
       return(
           <div className="App">
               <main className="App-content">
                   <h1>Bienvenid@ al test de <img src={OpenbankLogo} className="App-header-logo" alt={"openbank-logo"} /></h1>
+                  <button onClick={this.open} type="" className="">PasswordWizard</button>
                   <h3>Objetivo </h3>
                   <p>Lo que pretendemos con la prueba es evaluar las capacidades técnicas respecto a un desarrollador web o front, especialmente en el area de React y aplicaciones SPA. Con esta prueba se pretende valorar muchos aspectos del stack tecnologico de un desarrollador del ambito web, como arquitectura, uso de patrones de diseño, maquetación, técnicas de programación, documentación, conocimentos de Javascript, HTML y CSS, entre otros. </p>
                   <h3>¿En que consiste?</h3>
@@ -69,6 +87,10 @@ class App extends Component {
 
                   <h4 className='bye-bye'>Sin más que añadir, ¡mucha suerte! y cualquier duda, mandanos tus dudas al correo que te han dado. =)</h4>
               </main>
+              <Modal
+                isOpened={this.state.wizard}
+                onClose={this.close}
+              />
           </div>
       );
 }

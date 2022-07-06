@@ -1,0 +1,43 @@
+@import "../../styles/variables.scss";
+
+.Step {
+  position: relative;
+  display: inline-flex;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &-actual {
+    background-color: $secondary-color;
+    transform: scale(1.5);
+    box-shadow: 0 8px 20px 0 rgba(0, 43, 69, 0.25);
+  }
+
+  &-prev {
+    background-color: $primary-color;
+
+    p {
+      visibility: hidden;
+
+      &::before {
+        visibility: visible;
+        content: '\2713';
+        position: absolute;
+      }
+    }
+  }
+
+  &-post {
+    background-color: $terciary-color;
+  }
+
+  p {
+    color: $white;
+    font-size: 0.8em;
+    font-family: $primary-font-book;
+  }
+
+}
