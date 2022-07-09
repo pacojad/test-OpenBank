@@ -1,14 +1,18 @@
 @import "../../styles/variables.scss";
 
-.Password-Step3 {
+.PasswordStep3 {
 
+  display: inline-flex;
+  background-color: $white;
+  padding: 20px 40px;
+  
   img {
     width: 20%;
     display: inline-block;
     padding-right: 1rem;
   }
 
-  &-text {
+  &_text {
     display: inline-block;
 
     h4 {

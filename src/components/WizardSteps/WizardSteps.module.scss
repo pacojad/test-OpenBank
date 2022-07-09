@@ -14,11 +14,11 @@
     width: 35px;
     height: 4px;
 
-    &-prev {
+    &_prev {
       background-color: $primary-color;
     }
 
-    &-post {
+    &_post {
       background-color: $terciary-color;
     }
   }
@@ -29,7 +29,7 @@
     justify-content: center;
     height: 80px;
 
-    &-container {
+    &_container {
       position: absolute;
       align-self: flex-end;
       width: 0;

@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import StoreProvider from '../../Context/store';
-import PassStep1 from './PassStep1'
 import { act } from 'react-dom/test-utils'
+import InputEye from './InputEye'
 
-const onClose = jest.fn()
-const onInit = jest.fn()
+const onChange = jest.fn()
 let container
 
 beforeEach(() => {
@@ -18,12 +16,13 @@ afterEach(() => {
   container = null;
 });
 
-it('renders without crashing', () => {
+
+test('renders without crashing', () => {
   act(() => {
-    ReactDOM.render(<StoreProvider><PassStep1 /></StoreProvider>, container)
+    ReactDOM.render(<InputEye name={'name'} onChange={onChange}/>, container)
   });
-  
-  const click = container.querySelector('input')
+
+  const click = container.querySelector('.clickEye')
   
   act(() => {
     click.dispatchEvent(new MouseEvent('click', {bubbles: true}));

@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.PasswordStep1 {
+  background-color: $white;
+  padding: 20px 40px;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+  }
+}

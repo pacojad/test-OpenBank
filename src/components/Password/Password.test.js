@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
+import StoreProvider from '../../Context/store';
 import Password from './Password'
 
-const onClose = jest.fn()
 let container
 
 beforeEach(() => {
@@ -18,6 +18,6 @@ afterEach(() => {
 
 it('renders without crashing', () => {
   act(() => {
-    ReactDOM.render(<Password onClose={onClose}/>, container)
+    ReactDOM.render(<StoreProvider><Password /></StoreProvider>, container)
   });
 });

@@ -10,13 +10,13 @@
   justify-content: center;
   text-align: center;
 
-  &-actual {
+  &_actual {
     background-color: $secondary-color;
     transform: scale(1.5);
     box-shadow: 0 8px 20px 0 rgba(0, 43, 69, 0.25);
   }
 
-  &-prev {
+  &_prev {
     background-color: $primary-color;
 
     p {
@@ -30,7 +30,7 @@
     }
   }
 
-  &-post {
+  &_post {
     background-color: $terciary-color;
   }
 

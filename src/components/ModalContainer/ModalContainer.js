@@ -1,26 +1,29 @@
-import React from "react"
+import React, { useContext } from "react"
 import ReactDOM from "react-dom"
 import PropTypes from 'prop-types'
 
-import Password from "../Password/Password"
+import { StoreContext } from '../../Context/store'
 
-import "./ModalContainer.scss"
+import styles from'./ModalContainer.module.scss'
 
 /**
  * Modal Portal
- * @param {boolean} isOpened - Value to open/close the modal
- * @param {any} onClose - Function to close the modal
+ * @param {element} [children] - Component
  */
 
 const modalContainer = document.querySelector("#modalContainer");
 
-const ModalContainer = ( props ) => {
+const ModalContainer = ( {children} ) => {
+
+  const { password }  = useContext(StoreContext)
+  const [passState] = password
+
   return (
-      props.isOpened
+      passState.wizard
       ? ReactDOM.createPortal(
-        <div className="modalContainer">
-          <div className="modal-content">
-            <Password onClose={props.onClose} />
+        <div className={styles.modalContainer}>
+          <div className={styles.modalContent}>
+            {children}   
           </div>
         </div>
         ,
@@ -31,9 +34,7 @@ const ModalContainer = ( props ) => {
 }
 
 ModalContainer.propTypes = {
-  isOpened: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+  children: PropTypes.element
 }
 
 export default ModalContainer
-

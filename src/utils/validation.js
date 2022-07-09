@@ -1,27 +1,47 @@
 // validation password wizards step1
-export const validationCheck = () => {
-  let activeNextStep = true
-  let container = document.querySelector('div.Password-Step1')
-  let checkboxes = container.querySelectorAll('input.required')
-  
-  for(let i=0; i<checkboxes.length; i++) {
-    if (!checkboxes[i].checked) {
-      activeNextStep = false 
-    }
-  }
-  return activeNextStep
+export const validationCheck = (checkboxes) => {
+  return Array.from(checkboxes).every(cb=>cb.current.checked)
 }
 
-// validation password wizards step2
+// validation Required password wizards step2
 export const validationInput = () => {
-  let activeNextStep = true
-  let container = document.querySelector('div.Password-Step2')
+  let container = document.querySelector('div.inputStep2')
   let input = container.querySelectorAll('input.required')
 
-  for(let i=0; i<input.length; i++) {
-    if (input[i].value === '') {
-      activeNextStep = false 
-    }
+  return Array.from(input).every(cb=>cb.value)
+}
+
+// validation RegExp password wizards step2
+export const validatePassRegExp = ( datas, setDatas, MIN_PASSWORD, MAX_PASSWORD) => {
+  let validityStatus = true
+  let regex = /[A-Z].*[0-9]|[0-9].*[A-Z]/
+  let messagePass = ''
+  let messageRepass = ''
+
+  if (datas.pass.length < MIN_PASSWORD) {
+    validityStatus = false;
+    messagePass = 'Longitud mínima ' + MIN_PASSWORD + ' caracteres'
   }
-  return activeNextStep
+
+  if (datas.pass.length > MAX_PASSWORD) {
+    validityStatus = false;
+    messagePass = 'Longitud máxima ' + MAX_PASSWORD + ' caracteres'
+  }
+
+  if (!regex.test(datas.pass)) {
+    validityStatus = false;
+    messagePass = 'Al menos una mayúscula y un número'
+  }
+
+  if (datas.pass !== datas.repass) {
+    validityStatus = false;
+    messageRepass = 'Las contraseñas no coinciden'
+  }
+
+  setDatas({...datas,
+    errPass : messagePass,
+    errRepass: messageRepass
+  })
+
+  return validityStatus;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { DEFAULT_MAX_INPUT } from '../../utils/constant'
 
-import './InputEye.scss'
+import styles from'./InputEye.module.scss'
 
 import eye from '../../assets/img/ojo.png'
 import invisible from '../../assets/img/invisible.png'
@@ -26,7 +26,7 @@ function InputEye(props) {
   return (
     <>
       <input type={type} {...props} />
-      <span className="InputEye-show" onClick={togglePassword}><img src={type==='password' ? eye : invisible} alt="Imagen Ojo"/></span>
+      <span className={`clickEye ${styles.InputEyeShow}`} onClick={togglePassword}><img src={type==='password' ? eye : invisible} alt="Imagen Ojo"/></span>
     </>
   )
 }

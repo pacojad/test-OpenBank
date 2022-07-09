@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import './WizardButtons.scss'
+import { StoreContext } from '../../Context/store'
+
+import styles from'./WizardButtons.module.scss'
 
 /**
  * Wizard footer buttom steps 1 and 2
- * @param {any} onClose - Function to close the modal
  * @param {any} onNext - Function to next step
  * @param {boolean} [nextButton=true] - Disable button
  */
 
-function WizardButtons(props) {
+function WizardButtons( {onNext, nextButton} ) {
+
+  const { close }  = useContext(StoreContext)
+
   return (
-    <div className='WizardButtons'>
-        <button type='button' className='button button-secondary' onClick={props.onClose}>Cancelar</button>
-        <button type='button' className={`button button-primary ${props.nextButton===false ? 'disabled' : ''}`} onClick={props.onNext} >Siguiente</button>
+    <div className={styles.WizardButtons}>
+        <button type='button' className='button button-secondary' onClick={close}>Cancelar</button>
+        <button type='button' className={`button button-primary ${nextButton===false ? 'disabled' : ''}`} onClick={onNext} >Siguiente</button>
     </div>
   )
 }
@@ -24,9 +28,9 @@ WizardButtons.defaultProps ={
 }
 
 WizardButtons.propTypes = {
-  onClose: PropTypes.func.isRequired,
   onNext: PropTypes.func.isRequired,
   nextButton: PropTypes.bool
 }
 
 export default WizardButtons
+

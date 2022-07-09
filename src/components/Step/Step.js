@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import "./Step.scss"
+import styles from'./Step.module.scss'
+
 
 /**
  * Step icon
@@ -9,10 +10,10 @@ import "./Step.scss"
  * @param {string} status - Step status
  */
 
-function Step(props) {
+function Step( {number, status} ) {
   return (
-    <div className={`Step ${props.status}`}>
-      <p>{props.number}</p>
+    <div className={`${styles.Step} ${status}`}>
+      <p>{number}</p>
     </div>
   )
 }
@@ -23,3 +24,4 @@ Step.propTypes = {
 }
 
 export default Step
+

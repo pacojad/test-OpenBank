@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './WizardButtonsResult.scss'
+import styles from'./WizardButtonsResult.module.scss'
 
 /**
  * Wizard footer button step 3
@@ -9,10 +9,10 @@ import './WizardButtonsResult.scss'
  * @param {string} buttonText - Text button
  */
 
-function WizardButtonsResult(props) {
+function WizardButtonsResult( {onButtonClick, buttonText} ) {
   return (
-    <div className='WizardButtonsResult'>
-        <button type='button' className='button button-secondary' onClick={props.onButtonClick}>{props.buttonText}</button>
+    <div className={styles.WizardButtonsResult}>
+        <button type='button' className='button button-secondary' onClick={onButtonClick}>{buttonText}</button>
     </div>
   )
 }

@@ -118,6 +118,27 @@ p {
   color: $secondary-color;
 }
 
+.loading {
+  background-color: rgba(0, 43, 69, 0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  &.disabled {
+    display: none;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
 .check-label {
   font-family: $primary-font-bold;
   font-size: 1.2rem;
@@ -165,3 +186,35 @@ p {
   }
 }
 
+.Step {
+  &_actual {
+    background-color: $secondary-color;
+    transform: scale(1.5);
+    box-shadow: 0 8px 20px 0 rgba(0, 43, 69, 0.25);
+  }
+
+  &_prev {
+    background-color: $primary-color;
+
+    p {
+      visibility: hidden;
+
+      &::before {
+        visibility: visible;
+        content: '\2713';
+        position: absolute;
+      }
+    }
+  }
+
+  &_post {
+    background-color: $terciary-color;
+  }
+
+  p {
+    color: $white;
+    font-size: 0.8em;
+    font-family: $primary-font-book;
+  }
+
+}

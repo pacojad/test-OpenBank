@@ -1,42 +1,46 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import './WizardSteps.scss'
+import styles from'./WizardSteps.module.scss'
 
 import Step from '../Step/Step'
+
+import { StoreContext } from '../../Context/store'
 
 /**
  * Generate the Wizard steps
  * @param {number} number - Number of steps
- * @param {number} active - Step active
  */
 
-const Steps = ( props ) => {
+const Steps = ( {number} ) => {
+
+  const { password } = useContext(StoreContext)
+  const [passState] = password
+
   let Steps =[]
-  for (let i = 1; i<=props.number; i++) {
-    if (i<props.active) {
+  for (let i = 1; i<=number; i++) {
+    if (i<passState.active) {
       Steps.push(
-        <Fragment key={i}>
-          <Step number={i} status={'Step-prev'}/>
-          <div className='line line-prev'></div>
+        <Fragment key={`step${i}`}>
+          <Step number={i} status={'Step_prev'}/>
+          <div className={`${styles.line} ${styles.line_prev}`}></div>
         </Fragment>
       )
-    } else if (i===props.active) {
+    } else if (i===passState.active) {
       Steps.push(
-        <Fragment key={i}>
-          <div className='triangle'>
-            <Step number={i} status={'Step-actual'}/>
-            <div className='triangle-container'></div>
+        <Fragment key={`step${i}`}>
+          <div className={styles.triangle}>
+            <Step number={i} status={'Step_actual'}/>
+            <div className={styles.triangle_container}></div>
           </div>
-
-          {(i===props.number) ? '' : <div className='line line-post'></div>}
+          {(i===number) ? '' : <div className={`${styles.line} ${styles.line_post}`}></div>}
         </Fragment>
       )
     } else {
       Steps.push(
-        <Fragment key={i}>
-          <Step number={i} status={'Step-post'}/>
-          {(i===props.number) ? '' : <div className='line line-post'></div>}
+        <Fragment key={`step${i}`}>
+          <Step number={i} status={'Step_post'}/>
+          {(i===number) ? '' : <div className={`${styles.line} ${styles.line_post}`}></div>}
         </Fragment>
       )
     }
@@ -46,15 +50,15 @@ const Steps = ( props ) => {
 
 function WizardSteps(props) {
   return (
-    <div className='WizardSteps'>
+    <div className={styles.WizardSteps}>
       <Steps {...props}/>
     </div>
   )
 }
 
 WizardSteps.propTypes = {
-  number: PropTypes.number.isRequired,
-  active: PropTypes.number.isRequired
+  number: PropTypes.number.isRequired
 }
 
 export default WizardSteps
+

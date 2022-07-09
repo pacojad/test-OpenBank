@@ -1,10 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { act } from 'react-dom/test-utils'
+import StoreProvider from '../../Context/store';
 import WizardSteps from './WizardSteps'
 
+let container
+
+beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  document.body.removeChild(container);
+  container = null;
+});
+
 it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<WizardSteps number={5} active={3}/>, div);
-  ReactDOM.render(<WizardSteps number={3} active={3}/>, div);
-  ReactDOM.unmountComponentAtNode(div);
+  act(() => {
+    ReactDOM.render(<StoreProvider><WizardSteps number={3} /></StoreProvider>, container)
+  });
 });

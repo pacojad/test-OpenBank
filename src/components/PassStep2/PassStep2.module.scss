@@ -1,0 +1,13 @@
+@import "../../styles/variables.scss";
+
+.PasswordStep2 {
+  background-color: $white;
+  padding: 20px 40px;
+
+  .textareaCount {
+    display: block;
+    text-align: end;
+    font-size: 1rem;
+    font-family: $primary-font-book;
+  }
+}
