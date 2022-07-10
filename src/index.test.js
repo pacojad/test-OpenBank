@@ -12,5 +12,5 @@ describe("Application root", () => {
     document.body.appendChild(div)
     require("./index.js")
     expect(ReactDOM.render).toHaveBeenCalledWith(<StoreProvider><App /></StoreProvider>, div)
-  });
-});
+  })
+})

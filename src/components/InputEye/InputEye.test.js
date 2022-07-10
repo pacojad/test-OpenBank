@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
+import { screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import InputEye from './InputEye'
 
 const onChange = jest.fn()
@@ -16,15 +18,9 @@ afterEach(() => {
   container = null;
 });
 
-
 test('renders without crashing', () => {
   act(() => {
     ReactDOM.render(<InputEye name={'name'} onChange={onChange}/>, container)
-  });
-
-  const click = container.querySelector('.clickEye')
-  
-  act(() => {
-    click.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    expect(screen.getAllByRole('img'))
   });
 });

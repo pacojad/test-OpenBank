@@ -24,4 +24,3 @@ Step.propTypes = {
 }
 
 export default Step
-

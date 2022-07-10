@@ -23,3 +23,4 @@ WizardButtonsResult.propTypes = {
 }
 
 export default WizardButtonsResult
+

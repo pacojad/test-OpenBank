@@ -61,4 +61,3 @@ WizardSteps.propTypes = {
 }
 
 export default WizardSteps
-

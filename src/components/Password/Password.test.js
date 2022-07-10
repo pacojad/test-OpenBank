@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
+import { screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import StoreProvider from '../../Context/store';
 import Password from './Password'
 
@@ -19,5 +21,6 @@ afterEach(() => {
 it('renders without crashing', () => {
   act(() => {
     ReactDOM.render(<StoreProvider><Password /></StoreProvider>, container)
+    expect(screen.getAllByRole('button'))
   });
 });

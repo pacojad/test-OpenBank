@@ -33,4 +33,3 @@ WizardButtons.propTypes = {
 }
 
 export default WizardButtons
-

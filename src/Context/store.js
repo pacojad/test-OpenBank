@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react'
 
 export const StoreContext = createContext(null)
 
-export default ({ children }) => {
+export default function StoreProvider({ children }) {
   
   const [passState, setPassState] = useState(
     {

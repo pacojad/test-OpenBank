@@ -1,5 +1,4 @@
-import { act } from 'react-dom/test-utils'
-import { validationCheck, validationInput, validatePassRegExp} from './validation'
+import { validatePassRegExp } from './validation'
 import { MIN_PASSWORD, MAX_PASSWORD } from './constant'
 
 const setDatas = jest.fn()

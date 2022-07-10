@@ -26,7 +26,7 @@ function InputEye(props) {
   return (
     <>
       <input type={type} {...props} />
-      <span className={`clickEye ${styles.InputEyeShow}`} onClick={togglePassword}><img src={type==='password' ? eye : invisible} alt="Imagen Ojo"/></span>
+      <span data-testid="custom-element" className={`clickEye ${styles.InputEyeShow}`} onClick={togglePassword}><img src={type==='password' ? eye : invisible} alt="Imagen Ojo"/></span>
     </>
   )
 }
@@ -46,3 +46,4 @@ InputEye.propTypes = {
 }
 
 export default InputEye
+

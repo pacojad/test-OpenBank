@@ -4,8 +4,6 @@ import { act } from 'react-dom/test-utils'
 import StoreProvider from '../../Context/store';
 import PassStep3 from './PassStep3'
 
-const onClose = jest.fn()
-const onInit = jest.fn()
 let container
 
 beforeEach(() => {
